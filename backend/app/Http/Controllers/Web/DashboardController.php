@@ -17,6 +17,7 @@ use App\Models\RubroEvaluacion;
 use App\Models\Sesion;
 use App\Repositories\Contracts\GrupoRepositoryInterface;
 use App\Repositories\Contracts\InstitucionRepositoryInterface;
+use App\Services\DashboardWebService;
 use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
@@ -24,6 +25,7 @@ class DashboardController extends Controller
     public function __construct(
         private readonly GrupoRepositoryInterface      $grupos,
         private readonly InstitucionRepositoryInterface $instituciones,
+        private readonly DashboardWebService            $dashboardWebService,
     ) {}
 
     public function index(\Illuminate\Http\Request $request)
@@ -65,7 +67,7 @@ class DashboardController extends Controller
             });
 
         // RF-76: Alumnos en riesgo (global, para los selects y la sección completa)
-        $alumnosEnRiesgo = $this->calcularAlumnosEnRiesgo($gruposIds);
+        $alumnosEnRiesgo = $this->dashboardWebService->calcularAlumnosEnRiesgo($gruposIds);
 
         // Tarjetas de resumen (valores sincronizados con el filtro activo)
         $aulasActivas      = $gruposIdsFiltrados->count();
@@ -123,7 +125,7 @@ class DashboardController extends Controller
         $gruposIds     = $this->grupos->todosPorDocente($docente->id_usuario)->pluck('id_grupo');
         $instituciones = $this->instituciones->todasPorDocente($docente->id_usuario);
 
-        $alumnosEnRiesgo = $this->calcularAlumnosEnRiesgo($gruposIds);
+        $alumnosEnRiesgo = $this->dashboardWebService->calcularAlumnosEnRiesgo($gruposIds);
 
         $filtroInst   = $request->query('inst', '');
         $filtroGrupo  = $request->query('grupo', '');
@@ -167,76 +169,4 @@ class DashboardController extends Controller
         return response($html, 200)->header('Content-Type', 'text/html');
     }
 
-    /**
-     * Calcula los alumnos en riesgo para un conjunto de grupos.
-     */
-    private function calcularAlumnosEnRiesgo($gruposIds): \Illuminate\Support\Collection
-    {
-        $alumnosEnRiesgo = collect();
-        foreach ($gruposIds as $idGrupo) {
-            $rubros = RubroEvaluacion::whereHas('institucion.grupos', fn($q) => $q->where('id_grupo', $idGrupo))
-                ->orderByDesc('porcentaje_minimo')->get();
-
-            $rubroPrincipal  = $rubros->first();
-            $pctPrincipal    = $rubroPrincipal?->porcentaje_minimo ?? 80;
-            $nombrePrincipal = $rubroPrincipal?->nombre ?? 'Ordinario';
-
-            $sesiones   = Sesion::where('id_grupo', $idGrupo)->where('est_sesion', 0)->get();
-            $hayActiva  = Sesion::where('id_grupo', $idGrupo)->where('est_sesion', 1)->exists();
-            $totalSes   = $sesiones->count();
-            if ($totalSes === 0) continue;
-
-            $faltasPermitidas = (int) floor($totalSes * (1 - $pctPrincipal / 100));
-
-            $alumnos = GrupoAlumno::where('id_grupo', $idGrupo)->with(['alumno', 'grupo'])->get();
-            foreach ($alumnos as $ga) {
-                $sesIds       = $sesiones->pluck('id_sesion');
-                $presentes    = Asistencia::whereIn('id_sesion', $sesIds)->where('id_alumno', $ga->id_alumno)->where('est_asistencia', 1)->count();
-                $justificadas = Asistencia::whereIn('id_sesion', $sesIds)->where('id_alumno', $ga->id_alumno)->where('est_asistencia', 3)->count();
-                $ausentes     = Asistencia::whereIn('id_sesion', $sesIds)->where('id_alumno', $ga->id_alumno)->where('est_asistencia', 2)->count();
-
-                $asistidas       = $presentes + $justificadas;
-                $pct             = round(($asistidas / $totalSes) * 100, 1);
-                $perdio          = $ausentes > $faltasPermitidas;
-                $faltasRestantes = max(0, $faltasPermitidas - $ausentes);
-
-                $enRiesgoProyectado = false;
-                if (!$perdio && $hayActiva) {
-                    $totalProyectado    = $totalSes + 1;
-                    $faltasPermProyect  = (int) floor($totalProyectado * (1 - $pctPrincipal / 100));
-                    $enRiesgoProyectado = ($ausentes + 1) > $faltasPermProyect;
-                }
-
-                // Un alumno entra en riesgo solo si está a 5% o menos por encima del mínimo del rubro principal
-                if (!$perdio && $pct > ($pctPrincipal + 5.0) && !$enRiesgoProyectado) continue;
-
-                if ($perdio || ($faltasRestantes <= 2 && $faltasPermitidas > 0) || $enRiesgoProyectado) {
-                    // Calcular a qué rubro tiene derecho según su porcentaje actual
-                    // Los rubros vienen ordenados descendente (más exigente primero)
-                    // Se busca el primer rubro cuyo mínimo el alumno SÍ cumple
-                    $rubroConDerecho = $rubros->first(fn($r) => $pct >= (float) $r->porcentaje_minimo);
-
-                    $alumnosEnRiesgo->push([
-                        'alumno'             => $ga->alumno,
-                        'grupo'              => $ga->grupo,
-                        'porcentaje'         => $pct,
-                        'total_faltas'       => $ausentes,
-                        'faltas_restantes'   => $faltasRestantes,
-                        'perdio'             => $perdio,
-                        'rubro_principal'    => $nombrePrincipal,
-                        'pct_principal'      => $pctPrincipal,
-                        'id_institucion'     => $ga->grupo->id_institucion,
-                        // Rubros ordenados desc para la vista (índice 0 = más exigente)
-                        'rubros'             => $rubros->values(),
-                        // Índice del rubro al que tiene derecho (null = sin derecho)
-                        'idx_rubro_derecho'  => $rubroConDerecho
-                            ? $rubros->search(fn($r) => $r->id_rubro === $rubroConDerecho->id_rubro)
-                            : null,
-                        'nombre_rubro_derecho' => $rubroConDerecho?->nombre,
-                    ]);
-                }
-            }
-        }
-        return $alumnosEnRiesgo;
-    }
 }
