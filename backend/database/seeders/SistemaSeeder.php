@@ -26,7 +26,7 @@ use Carbon\Carbon;
  *   - 1 sesión activa en el grupo 216000 para pruebas en vivo
  *   - Suscripciones activas para ambos docentes
  */
-class OmegaSeeder extends Seeder
+class SistemaSeeder extends Seeder
 {
     public function run(): void
     {
