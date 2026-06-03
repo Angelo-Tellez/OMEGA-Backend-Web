@@ -1,32 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * AlumnoService
- * MPL-OMEGA-05 | Código: CA-SVC-ALUMNO-01
- * ============================================================
- * Lógica de negocio para el rol Alumno (app móvil Flutter).
- *
- * Requerimientos cubiertos:
- *  RF-14  Registro por clave — campo de entrada alfanumérico
- *  RF-15  Panel de progreso — lista materias vinculadas
- *  RF-19  Alta de materias — código único o QR temporal
- *  RF-21  Validación de sesión activa antes de registrar
- *  RF-22  Rechazo si sesión cerrada (est_sesion = 0)
- *  RF-31  Historial con código de colores (1/2/3)
- *  RF-32  Porcentaje de asistencia por materia
- *  RF-33  Cumplimiento de rubros (Ordinario / Extraordinario)
- *  RF-38  Registro en menos de 5 s — validaciones mínimas
- *  RF-43  Chips de estado por rubro evaluativo
- *  RF-44  Alertas dinámicas de riesgo (faltas permitidas)
- *  RF-45  Tarjeta de rubros con porcentajes mínimos
- *
- * Convenciones (MPL-OMEGA-05 §3.3, §6.1, §6.6):
- *  - Inyección de dependencias por constructor
- *  - Validación con Validator::make + ValidationException
- *  - Nunca accede a la Request directamente
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Services/AlumnoService.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Services;
 

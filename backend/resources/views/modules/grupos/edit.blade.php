@@ -1,8 +1,16 @@
 {{--
-    @file edit.blade.php
-    @description Formulario para editar un grupo/aula
-    @version 1.0.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/modules/grupos/edit.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Editar Aula')
 @section('content')

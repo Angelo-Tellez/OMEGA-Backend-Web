@@ -1,8 +1,16 @@
 {{--
- * Partial — Mensajes de sesión con auto-dismiss.
- * MPL-OMEGA-05 §8.4.1 | §8.3.6
- * @version 1.1.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/partials/session-messages.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @foreach (['success' => ['green', 'fa-circle-check'], 'error' => ['red', 'fa-circle-xmark'], 'warning' => ['yellow', 'fa-triangle-exclamation'], 'info' => ['blue', 'fa-circle-info']] as $tipo => $cfg)
     @if (session($tipo))
         <div x-data="{ show: true }" x-show="show" x-transition

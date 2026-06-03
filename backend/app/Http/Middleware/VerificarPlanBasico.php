@@ -1,12 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * Middleware — Verificacion de plan activo del docente.
- * MPL-OMEGA-05 §6.1
- * @version 1.0.0
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Http/Middleware/VerificarPlanBasico.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Http\Middleware;
 

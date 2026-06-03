@@ -1,8 +1,16 @@
 {{--
-    @file login.blade.php
-    @description Pantalla de inicio de sesión para Docentes
-    @version 1.0.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/auth/login.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @extends('layouts.guest')
 
 @section('content')

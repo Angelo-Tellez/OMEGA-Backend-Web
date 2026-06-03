@@ -1,8 +1,16 @@
 {{--
-    @file index.blade.php
-    @description Lista de instituciones del Docente con grupos expandibles
-    @version 2.0.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/modules/instituciones/index.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Mis Instituciones')
 @section('content')

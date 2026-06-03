@@ -1,3 +1,16 @@
+{{--
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/modules/reportes/detalle_alumno.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 {--
  * ============================================================
  * Vista Blade — Detalle de asistencias por alumno

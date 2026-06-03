@@ -1,12 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * Servicio — Logica de negocio de autenticacion.
- * MPL-OMEGA-05 §2.3 | §6.1
- * @version 1.0.0
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Services/AuthService.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Services;
 

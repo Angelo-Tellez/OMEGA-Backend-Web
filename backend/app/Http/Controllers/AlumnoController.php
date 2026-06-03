@@ -1,17 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * AlumnoController
- * MPL-OMEGA-05 | Código: CA-CTRL-ALUMNO-01
- * ============================================================
- * Controlador HTTP para las operaciones del rol Alumno
- * consumidas desde la aplicación móvil Flutter.
- *
- * Sin lógica de negocio: delega 100 % al AlumnoService.
- * Requerimientos: RF-14, RF-15, RF-19, RF-21, RF-31..RF-45
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Http/Controllers/AlumnoController.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Http\Controllers;
 

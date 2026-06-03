@@ -1,16 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * DashboardController
- * MPL-OMEGA-05 | Código: CA-CTRL-DASHBOARD-01
- * ============================================================
- * Controlador HTTP para las métricas del dashboard del Docente.
- * Sin lógica de negocio: delega al DashboardService.
- *
- * Requerimientos: RF-13, RF-76, RF-77
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Http/Controllers/DashboardController.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Http\Controllers;
 

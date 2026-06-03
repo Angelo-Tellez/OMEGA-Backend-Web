@@ -1,12 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * Contrato — Interfaz del repositorio de autenticacion.
- * MPL-OMEGA-05 §2.4
- * @version 1.0.0
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Repositories/Contracts/AuthRepositoryInterface.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Repositories\Contracts;
 

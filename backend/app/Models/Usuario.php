@@ -1,20 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * Modelo Eloquent — tabla: usuarios
- * MDB-OMEGA-DD-01 §4.1 | MPL-OMEGA-05 §6.3
- * ============================================================
- * Roles:
- *   1 = Docente — gestiona instituciones, grupos, sesiones
- *   2 = Alumno  — registra asistencia, consulta progreso
- *
- * Convenciones (MDB-OMEGA-01 §3.4):
- *   - PK: id_usuario
- *   - Contraseña: campo 'contrasenia' (no 'password')
- *   - Timestamps: habilitados
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Models/Usuario.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Models;
 

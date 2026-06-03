@@ -1,27 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * SesionService
- * MPL-OMEGA-05 | Código: CA-SVC-SESION-01
- * ============================================================
- * Lógica de negocio para sesiones de asistencia.
- *
- * Valores de est_sesion (MDB-OMEGA-DD-01 §4.6):
- *   1 = Activa
- *   0 = Cerrada
- *
- * Requerimientos cubiertos:
- *   RF-62  Generar clave alfanumérica única por sesión
- *   RF-63  Mostrar clave activa — consultar sesión activa del grupo
- *   RF-64  Abrir y cerrar manualmente la ventana de registro
- *   RF-65  Cierre automático al vencer el tiempo
- *   RF-66  Registro en tiempo real con actualizaciones
- *   RF-48  Temporizador: hora_apertura disponible en respuesta
- *   RF-49  Estadísticas en tiempo real: presentes / total alumnos
- *   RNF-W-44 Clave temporal e irrepetible
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Services/SesionService.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Services;
 

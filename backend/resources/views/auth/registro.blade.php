@@ -1,8 +1,16 @@
 {{--
-    @file registro.blade.php
-    @description Pantalla de registro para nuevos Docentes
-    @version 1.0.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/auth/registro.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @extends('layouts.guest')
 @section('title', 'Crear Cuenta')
 @section('content')

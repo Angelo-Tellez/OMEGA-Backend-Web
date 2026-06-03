@@ -1,16 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * SesionController
- * MPL-OMEGA-05 | Código: CA-CTRL-SESION-01
- * ============================================================
- * Controlador HTTP para sesiones de asistencia.
- * Sin lógica de negocio: delega al SesionService.
- *
- * Requerimientos: RF-62, RF-63, RF-64, RF-65
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Http/Controllers/SesionController.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Http\Controllers;
 

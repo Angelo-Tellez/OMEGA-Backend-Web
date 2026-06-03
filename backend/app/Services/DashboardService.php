@@ -1,19 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * DashboardService
- * MPL-OMEGA-05 | Código: CA-SVC-DASHBOARD-01
- * ============================================================
- * Agrega las métricas del panel principal del Docente.
- *
- * Requerimientos cubiertos:
- *   RF-76  Dashboard: aulas activas, sesiones del día,
- *          alumnos en riesgo, justificantes pendientes
- *   RF-77  Estado de alumnos vs rubros de evaluación
- *   RF-13  Resumen general por institución activa
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Services/DashboardService.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Services;
 

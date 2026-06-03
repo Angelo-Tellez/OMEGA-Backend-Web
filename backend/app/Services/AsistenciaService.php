@@ -1,20 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * AsistenciaService
- * MPL-OMEGA-05 | Código: CA-SVC-ASISTENCIA-01
- * ============================================================
- * Lógica de negocio para registro y gestión de asistencias.
- *
- * Requerimientos cubiertos:
- *   RF-66  Lista con nombre formato Ap.Pat Ap.Mat, Nombre
- *          y hora_registro HH:MM:SS (guion para ausentes)
- *   RF-67  Edición manual del estado por el Docente
- *   RF-69  Cálculo automático del porcentaje por alumno
- *   RF-74  Al justificar, actualizar porcentaje en tiempo real
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Services/AsistenciaService.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Services;
 

@@ -1,8 +1,16 @@
 {{--
-    @file asistencias.blade.php
-    @description Lista de asistencias de una sesión
-    @version 1.0.0
---}}
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : resources/views/modules/sesiones/asistencias.blade.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Asistencias')
 @section('content')

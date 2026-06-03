@@ -1,16 +1,17 @@
 <?php
 
-/*
- * ============================================================
- * AsistenciaController
- * MPL-OMEGA-05 | Código: CA-CTRL-ASISTENCIA-01
- * ============================================================
- * Controlador HTTP para registro y gestión de asistencias.
- * Sin lógica de negocio: delega al AsistenciaService.
- *
- * Requerimientos: RF-66, RF-67, RF-69, RF-74
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : app/Http/Controllers/AsistenciaController.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
+
 
 namespace App\Http\Controllers;
 
