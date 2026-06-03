@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Formulario de creacion de institucion
+ * Modulo: Instituciones
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Nueva Institución')
 @section('content')

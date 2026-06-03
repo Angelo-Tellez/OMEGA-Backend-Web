@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Lista de reportes del docente
+ * Modulo: Reportes
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Reportes')
 @section('content')

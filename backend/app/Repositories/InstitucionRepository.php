@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Repositorio — Operaciones de instituciones en BD.
+ * MPL-OMEGA-05 §2.4 | §6.1
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Repositories;
 
 use App\Models\Institucion;

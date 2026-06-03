@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Lista y gestion de periodos por institucion
+ * Modulo: Periodos
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Periodos — ' . $institucion->nombre)
 @section('content')

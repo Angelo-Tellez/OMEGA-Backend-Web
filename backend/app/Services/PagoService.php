@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Servicio — Logica de negocio de pagos PayPal.
+ * MPL-OMEGA-05 §2.3 | §6.1
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Services;
 
 use App\Models\Pago;

@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Detalle de asistencias por alumno
+ * Modulo: Reportes
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Historial — ' . $alumno->nombre)
 @section('content')

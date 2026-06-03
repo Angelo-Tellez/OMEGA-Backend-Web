@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Lista de alumnos de un grupo
+ * Modulo: Grupos
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Alumnos — ' . $grupo->nombre)
 @section('content')

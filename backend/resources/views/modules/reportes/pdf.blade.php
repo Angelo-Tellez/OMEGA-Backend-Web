@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — PDF de reporte de asistencias
+ * Modulo: Reportes
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 <!DOCTYPE html>
 <html lang="es">
 <head>

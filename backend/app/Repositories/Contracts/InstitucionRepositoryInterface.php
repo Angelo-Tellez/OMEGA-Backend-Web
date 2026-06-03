@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Contrato — Interfaz del repositorio de instituciones.
+ * MPL-OMEGA-05 §2.4
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Repositories\Contracts;
 
 use App\Models\Institucion;

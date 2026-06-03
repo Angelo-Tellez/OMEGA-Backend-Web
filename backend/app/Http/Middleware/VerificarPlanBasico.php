@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Middleware — Verificacion de plan activo del docente.
+ * MPL-OMEGA-05 §6.1
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Http\Middleware;
 
 use App\Services\SuscripcionService;

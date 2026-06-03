@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Detalle de reporte por grupo
+ * Modulo: Reportes
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Reporte — ' . $grupo->nombre)
 @section('content')

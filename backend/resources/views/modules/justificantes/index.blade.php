@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Gestion de justificantes de asistencia
+ * Modulo: Justificantes
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Justificantes')
 @section('content')

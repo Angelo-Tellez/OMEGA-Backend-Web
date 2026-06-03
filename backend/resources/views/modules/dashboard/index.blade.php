@@ -1,3 +1,11 @@
+{--
+ * ============================================================
+ * Vista Blade — Dashboard principal del docente
+ * Modulo: Dashboard
+ * MPL-OMEGA-05 §7.1
+ * @version 1.0.0
+ * ============================================================
+--}
 @extends('layouts.app')
 @section('title', 'Inicio')
 @section('content')
