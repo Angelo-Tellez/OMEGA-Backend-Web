@@ -10,7 +10,7 @@
 // Changelog:
 //   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
 // ============================================================
---}
+--}}
 <footer class="bg-omg-chardon border-t border-omg-kashmir-dark px-6 py-3 flex items-center justify-between">
     <p class="text-xs font-heading font-semibold text-omg-dark">
         © 2026 OMEGA – Control de Asistencias

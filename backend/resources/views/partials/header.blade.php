@@ -10,7 +10,7 @@
 // Changelog:
 //   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
 // ============================================================
---}
+--}}
 <header class="bg-white border-b border-omg-kashmir-dark px-6 py-4 flex items-center justify-between">
     <div>
         @hasSection('breadcrumb')

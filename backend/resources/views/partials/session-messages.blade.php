@@ -10,7 +10,7 @@
 // Changelog:
 //   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
 // ============================================================
---}
+--}}
 @foreach (['success' => ['green', 'fa-circle-check'], 'error' => ['red', 'fa-circle-xmark'], 'warning' => ['yellow', 'fa-triangle-exclamation'], 'info' => ['blue', 'fa-circle-info']] as $tipo => $cfg)
     @if (session($tipo))
         <div x-data="{ show: true }" x-show="show" x-transition

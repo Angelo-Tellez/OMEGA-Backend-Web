@@ -10,7 +10,7 @@
 // Changelog:
 //   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
 // ============================================================
---}
+--}}
 @extends('layouts.guest')
 @section('title', 'Recuperar contraseña')
 @section('content')
