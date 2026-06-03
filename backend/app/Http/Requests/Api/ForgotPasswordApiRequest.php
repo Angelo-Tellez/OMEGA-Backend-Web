@@ -1,12 +1,16 @@
 <?php
 
-/*
- * ============================================================
- * Form Request — Validacion de solicitud de recuperacion de contrasenia API.
- * MPL-OMEGA-05 §6.5
- * @version 1.0.0
- * ============================================================
- */
+// ============================================================
+// Company    : OMEGA Solutions (OMEGA)
+// Project    : ATN - Sistema de Control de Asistencias
+// File       : backend/app/Http/Requests/Api/ForgotPasswordApiRequest.php
+// Created on : 03/06/2026
+// Created by : Angelo Armando Tellez Enriquez
+// Reviewed by:
+// ------------------------------------------------------------
+// Changelog:
+//   [001] 03/06/2026 - Angelo Armando Tellez Enriquez - Creacion del archivo
+// ============================================================
 
 namespace App\Http\Requests\Api;
 

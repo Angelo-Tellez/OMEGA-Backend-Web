@@ -3,7 +3,7 @@
 // ============================================================
 // Company    : OMEGA Solutions (OMEGA)
 // Project    : ATN - Sistema de Control de Asistencias
-// File       : app/Http/Controllers/Web/AuthWebController.php
+// File       : backend/app/Http/Controllers/Web/AuthWebController.php
 // Created on : 03/06/2026
 // Created by : Angelo Armando Tellez Enriquez
 // Reviewed by:

@@ -3,7 +3,7 @@
 // ============================================================
 // Company    : OMEGA Solutions (OMEGA)
 // Project    : ATN - Sistema de Control de Asistencias
-// File       : app/Models/Usuario.php
+// File       : backend/app/Models/Usuario.php
 // Created on : 03/06/2026
 // Created by : Angelo Armando Tellez Enriquez
 // Reviewed by:
