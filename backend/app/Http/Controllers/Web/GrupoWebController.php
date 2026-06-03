@@ -53,6 +53,12 @@ class GrupoWebController extends Controller
 
     public function create()
     {
+        // Requiere institución activa en sesión
+        if (!session('institucion_id')) {
+            return redirect()->route('ca.instituciones.index')
+                ->with('warning', 'Debes seleccionar una institución antes de crear un aula.');
+        }
+
         $instituciones = $this->instituciones->todasPorDocente(Auth::user()->id_usuario);
         $periodos = \App\Models\Periodo::where('id_institucion', session('institucion_id'))
             ->where('activo', true)->orderByDesc('created_at')->get();
