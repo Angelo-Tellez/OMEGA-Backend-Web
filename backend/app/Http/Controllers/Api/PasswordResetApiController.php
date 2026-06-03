@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
 use Illuminate\Http\JsonResponse;
+use App\Http\Requests\Api\ForgotPasswordApiRequest;
+use App\Http\Requests\Api\ResetPasswordApiRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,10 +16,8 @@ use Carbon\Carbon;
 
 class PasswordResetApiController extends Controller
 {
-    public function sendResetLink(Request $request): JsonResponse
+    public function sendResetLink(ForgotPasswordApiRequest $request): JsonResponse
     {
-        $request->validate(['email' => ['required', 'email']]);
-
         $usuario = Usuario::where('email', $request->email)->first();
 
         if ($usuario) {
@@ -45,14 +45,8 @@ class PasswordResetApiController extends Controller
         ]);
     }
 
-    public function reset(Request $request): JsonResponse
+    public function reset(ResetPasswordApiRequest $request): JsonResponse
     {
-        $request->validate([
-            'token'    => ['required'],
-            'email'    => ['required', 'email'],
-            'password' => ['required', 'min:6'],
-        ]);
-
         $record = DB::table('password_reset_tokens')->where('email', $request->email)->first();
 
         if (!$record || !Hash::check($request->token, $record->token)) {

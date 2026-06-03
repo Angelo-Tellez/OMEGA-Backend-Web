@@ -13,6 +13,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Institucion;
 use App\Models\Periodo;
+use App\Http\Requests\Web\StorePeriodoRequest;
+use App\Http\Requests\Web\UpdatePeriodoRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,34 +41,12 @@ class PeriodoWebController extends Controller
 
         // Ruta rápida: opciones predefinidas (Ene-Jun 2026, etc.)
         if ($request->filled('nombre_rapido')) {
-            $request->validate([
-                'nombre_rapido' => ['required', 'string', 'max:100'],
-            ]);
             $nombre = trim($request->nombre_rapido);
         } else {
             // Ruta personalizada: intervalo de fechas → nombre generado
             $anioActual    = now()->year;
             $anioSiguiente = $anioActual + 1;
 
-            $request->validate([
-                'fecha_inicio' => [
-                    'required', 'date',
-                    "after_or_equal:{$anioActual}-01-01",
-                    "before_or_equal:{$anioSiguiente}-12-31",
-                ],
-                'fecha_fin' => [
-                    'required', 'date',
-                    'after_or_equal:fecha_inicio',
-                    "before_or_equal:{$anioSiguiente}-12-31",
-                ],
-            ], [
-                'fecha_inicio.required'        => 'La fecha de inicio es obligatoria.',
-                'fecha_inicio.after_or_equal'  => 'La fecha de inicio debe estar dentro del año actual o siguiente.',
-                'fecha_inicio.before_or_equal' => 'La fecha de inicio debe estar dentro del año actual o siguiente.',
-                'fecha_fin.required'           => 'La fecha de término es obligatoria.',
-                'fecha_fin.after_or_equal'     => 'La fecha de término debe ser igual o posterior a la fecha de inicio.',
-                'fecha_fin.before_or_equal'    => 'La fecha de término debe estar dentro del año actual o siguiente.',
-            ]);
 
             $nombre = $this->generarNombre($request->fecha_inicio, $request->fecha_fin);
         }
@@ -96,26 +76,6 @@ class PeriodoWebController extends Controller
 
         $anioActual    = now()->year;
         $anioSiguiente = $anioActual + 1;
-
-        $request->validate([
-            'fecha_inicio' => [
-                'required', 'date',
-                "after_or_equal:{$anioActual}-01-01",
-                "before_or_equal:{$anioSiguiente}-12-31",
-            ],
-            'fecha_fin' => [
-                'required', 'date',
-                'after_or_equal:fecha_inicio',
-                "before_or_equal:{$anioSiguiente}-12-31",
-            ],
-        ], [
-            'fecha_inicio.required'        => 'La fecha de inicio es obligatoria.',
-            'fecha_inicio.after_or_equal'  => 'La fecha de inicio debe estar dentro del año actual o siguiente.',
-            'fecha_inicio.before_or_equal' => 'La fecha de inicio debe estar dentro del año actual o siguiente.',
-            'fecha_fin.required'           => 'La fecha de término es obligatoria.',
-            'fecha_fin.after_or_equal'     => 'La fecha de término debe ser igual o posterior a la fecha de inicio.',
-            'fecha_fin.before_or_equal'    => 'La fecha de término debe estar dentro del año actual o siguiente.',
-        ]);
 
         $nombre = $this->generarNombre($request->fecha_inicio, $request->fecha_fin);
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Services\AuthService;
+use App\Http\Requests\Web\LoginRequest;
+use App\Http\Requests\Web\RegistroRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -27,16 +29,9 @@ class AuthWebController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        $credentials = $request->validate([
-            'email'       => ['required', 'email'],
-            'contrasenia' => ['required', 'string'],
-        ], [
-            'email.required'       => 'El campo correo electrónico es obligatorio',
-            'email.email'          => 'El correo no tiene un formato válido',
-            'contrasenia.required' => 'El campo contraseña es obligatorio',
-        ]);
+        $credentials = $request->validated();
 
         $attempt = Auth::attempt([
             'email'      => $credentials['email'],
@@ -70,26 +65,9 @@ class AuthWebController extends Controller
         return view('auth.registro');
     }
 
-    public function registro(Request $request)
+    public function registro(RegistroRequest $request)
     {
-        $request->validate([
-            'nombre'                  => ['required', 'string', 'max:100'],
-            'ap_pat'                  => ['required', 'string', 'max:100'],
-            'ap_mat'                  => ['required', 'string', 'max:100'],
-            'email'                   => ['required', 'email', 'max:200', 'unique:usuarios,email'],
-            'contrasenia'             => ['required', 'string', 'min:8', 'confirmed'],
-            'contrasenia_confirmation'=> ['required'],
-        ], [
-            'nombre.required'    => 'El campo nombre es obligatorio',
-            'ap_pat.required'    => 'El campo apellido paterno es obligatorio',
-            'ap_mat.required'    => 'El campo apellido materno es obligatorio',
-            'email.required'     => 'El campo correo electrónico es obligatorio',
-            'email.email'        => 'El correo no tiene un formato válido',
-            'email.unique'       => 'El correo ya está registrado',
-            'contrasenia.required' => 'El campo contraseña es obligatorio',
-            'contrasenia.min'    => 'La contraseña debe tener al menos 8 caracteres',
-            'contrasenia.confirmed' => 'Los campos contraseña y confirmar contraseña deben coincidir',
-        ]);
+        $request->validated();
 
         try {
             $this->authService->registro([

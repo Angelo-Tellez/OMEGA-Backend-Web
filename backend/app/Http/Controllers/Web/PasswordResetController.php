@@ -12,6 +12,8 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Usuario;
+use App\Http\Requests\Web\ForgotPasswordRequest;
+use App\Http\Requests\Web\ResetPasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -29,15 +31,8 @@ class PasswordResetController extends Controller
         return view('auth.forgot-password');
     }
 
-    public function sendResetLink(Request $request)
+    public function sendResetLink(ForgotPasswordRequest $request)
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-        ], [
-            'email.required' => 'El correo electrónico es obligatorio',
-            'email.email'    => 'Ingresa un correo válido',
-        ]);
-
         $usuario = Usuario::where('email', $request->email)->first();
 
         // Por seguridad siempre mostramos el mismo mensaje
@@ -80,18 +75,8 @@ class PasswordResetController extends Controller
         ]);
     }
 
-    public function reset(Request $request)
+    public function reset(ResetPasswordRequest $request)
     {
-        $request->validate([
-            'token'                 => ['required'],
-            'email'                 => ['required', 'email'],
-            'password'              => ['required', 'min:8', 'confirmed'],
-        ], [
-            'password.required'  => 'La contraseña es obligatoria',
-            'password.min'       => 'La contraseña debe tener al menos 8 caracteres',
-            'password.confirmed' => 'Las contraseñas no coinciden',
-        ]);
-
         $record = DB::table('password_reset_tokens')
             ->where('email', $request->email)
             ->first();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\PagoService;
 use Illuminate\Http\JsonResponse;
+use App\Http\Requests\Api\CapturarPagoRequest;
 use Illuminate\Http\Request;
 
 /**
@@ -22,12 +23,8 @@ class PagoController extends Controller
         return response()->json(['data' => $orden, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
-    public function capturarPago(Request $request): JsonResponse
+    public function capturarPago(CapturarPagoRequest $request): JsonResponse
     {
-        $request->validate([
-            'order_id' => ['required', 'string'],
-        ]);
-
         $pago = $this->pagos->capturarPago($request->order_id, $request->user());
         return response()->json(['data' => $pago, 'message' => 'La información se cargó correctamente']);
     }
