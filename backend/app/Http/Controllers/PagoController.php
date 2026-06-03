@@ -19,7 +19,7 @@ class PagoController extends Controller
     public function crearOrden(Request $request): JsonResponse
     {
         $orden = $this->pagos->crearOrden($request->user());
-        return response()->json(['data' => $orden], 201);
+        return response()->json(['data' => $orden, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function capturarPago(Request $request): JsonResponse
@@ -29,7 +29,7 @@ class PagoController extends Controller
         ]);
 
         $pago = $this->pagos->capturarPago($request->order_id, $request->user());
-        return response()->json(['data' => $pago]);
+        return response()->json(['data' => $pago, 'message' => 'La información se cargó correctamente']);
     }
 
     public function historial(Request $request): JsonResponse
@@ -47,7 +47,7 @@ class PagoController extends Controller
     public function cancelarPago(Request $request): JsonResponse
     {
         // El pago fue cancelado por el usuario — no hay acción en el backend
-        return response()->json(['data' => ['cancelado' => true]]);
+        return response()->json(['data' => ['cancelado' => true], 'message' => 'La operación se canceló correctamente']);
     }
 
     public function paypalReturn(Request $request)

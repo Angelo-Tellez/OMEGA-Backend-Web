@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Controlador Web — Gestión de Rubros de Evaluación.
+ * MPL-OMEGA-05 §6.1 | §6.2
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;

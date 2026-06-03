@@ -27,7 +27,7 @@ class GrupoController extends Controller
     public function store(Request $request): JsonResponse
     {
         $creado = $this->grupos->crear($request->all(), $request->user());
-        return response()->json(['data' => $creado], 201);
+        return response()->json(['data' => $creado, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     /**
@@ -37,14 +37,14 @@ class GrupoController extends Controller
     public function indexParaInstitucion(Request $request, int $idInstitucion): JsonResponse
     {
         $grupos = $this->grupos->listarPorInstitucion($idInstitucion, $request->user());
-        return response()->json(['data' => $grupos]);
+        return response()->json(['data' => $grupos, 'message' => 'La información se cargó correctamente']);
     }
 
     public function storeParaInstitucion(Request $request, int $idInstitucion): JsonResponse
     {
         $datos = array_merge($request->all(), ['id_institucion' => $idInstitucion]);
         $creado = $this->grupos->crear($datos, $request->user());
-        return response()->json(['data' => $creado], 201);
+        return response()->json(['data' => $creado, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function show(Request $request, Grupo $grupo): JsonResponse
@@ -57,7 +57,7 @@ class GrupoController extends Controller
     public function update(Request $request, Grupo $grupo): JsonResponse
     {
         $actualizado = $this->grupos->actualizar($grupo, $request->all(), $request->user());
-        return response()->json(['data' => $actualizado]);
+        return response()->json(['data' => $actualizado, 'message' => 'La información se actualizó correctamente']);
     }
 
     public function destroy(Request $request, Grupo $grupo): JsonResponse
@@ -69,6 +69,6 @@ class GrupoController extends Controller
     public function generarCodigo(Request $request, Grupo $grupo): JsonResponse
     {
         $actualizado = $this->grupos->generarCodigoInv($grupo, $request->user());
-        return response()->json(['data' => $actualizado]);
+        return response()->json(['data' => $actualizado, 'message' => 'La información se actualizó correctamente']);
     }
 }

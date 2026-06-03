@@ -1,11 +1,20 @@
 <?php
 
+/*
+ * ============================================================
+ * Controlador Web — Gestión de Suscripciones y Pagos PayPal.
+ * MPL-OMEGA-05 §6.1 | §6.2
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Services\PagoService;
 use App\Services\SuscripcionService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -42,7 +51,8 @@ class SuscripcionWebController extends Controller
 
             return redirect()->route('ca.suscripcion.index')
                 ->with('error', 'No se pudo obtener el enlace de PayPal');
-        } catch (\Exception $e) {
+        } catch (\\Exception $e) {
+            Log::error('[OMEGA] ' . class_basename($this) . ': ' . $e->getMessage());
             return redirect()->route('ca.suscripcion.index')
                 ->with('error', 'Error al conectar con PayPal: ' . $e->getMessage());
         }
@@ -66,7 +76,8 @@ class SuscripcionWebController extends Controller
 
             return redirect()->route('ca.suscripcion.index')
                 ->with('success', '¡Pago exitoso! Tu Plan Mensual ha sido activado.');
-        } catch (\Exception $e) {
+        } catch (\\Exception $e) {
+            Log::error('[OMEGA] ' . class_basename($this) . ': ' . $e->getMessage());
             return redirect()->route('ca.suscripcion.index')
                 ->with('error', 'Error al capturar el pago: ' . $e->getMessage());
         }

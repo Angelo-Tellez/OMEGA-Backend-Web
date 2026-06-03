@@ -26,7 +26,7 @@ class UsuarioController extends Controller
     public function store(Request $request): JsonResponse
     {
         $creado = $this->usuarios->crear($request->all());
-        return response()->json(['data' => $creado], 201);
+        return response()->json(['data' => $creado, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function show(Usuario $usuario): JsonResponse
@@ -39,7 +39,7 @@ class UsuarioController extends Controller
     public function update(Request $request, Usuario $usuario): JsonResponse
     {
         $actualizado = $this->usuarios->actualizar($usuario, $request->all());
-        return response()->json(['data' => $actualizado]);
+        return response()->json(['data' => $actualizado, 'message' => 'La información se actualizó correctamente']);
     }
 
     public function destroy(Usuario $usuario): JsonResponse

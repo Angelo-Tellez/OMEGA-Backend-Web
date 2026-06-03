@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * ============================================================
+ * Controlador Web — Recuperación y Restablecimiento de Contraseña.
+ * MPL-OMEGA-05 §6.1 | §6.6
+ * @version 1.0.0
+ * ============================================================
+ */
+
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;

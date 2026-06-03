@@ -26,6 +26,6 @@ class SuscripcionController extends Controller
     public function activarBasico(Request $request): JsonResponse
     {
         $suscripcion = $this->suscripciones->crearPlanBasico($request->user());
-        return response()->json(['data' => $this->suscripciones->obtener($request->user())], 201);
+        return response()->json(['data' => $this->suscripciones->obtener($request->user()), 'message' => 'La información se cargó correctamente']);
     }
 }

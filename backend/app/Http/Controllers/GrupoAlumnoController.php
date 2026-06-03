@@ -27,7 +27,7 @@ class GrupoAlumnoController extends Controller
     public function matricular(Request $request): JsonResponse
     {
         $vinculacion = $this->grupoAlumnos->matricular($request->all(), $request->user());
-        return response()->json(['data' => $vinculacion], 201);
+        return response()->json(['data' => $vinculacion, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function destroy(Request $request, GrupoAlumno $grupoAlumno): JsonResponse

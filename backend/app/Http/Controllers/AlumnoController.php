@@ -33,7 +33,7 @@ class AlumnoController extends Controller
     public function unirse(Request $request): JsonResponse
     {
         $vinculacion = $this->alumnos->unirse($request->all(), $request->user());
-        return response()->json(['data' => $vinculacion], 201);
+        return response()->json(['data' => $vinculacion, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     /**
@@ -44,7 +44,7 @@ class AlumnoController extends Controller
     public function misGrupos(Request $request): JsonResponse
     {
         $grupos = $this->alumnos->misGrupos($request->user());
-        return response()->json(['data' => $grupos]);
+        return response()->json(['data' => $grupos, 'message' => 'La información se cargó correctamente']);
     }
 
     /**
@@ -55,7 +55,7 @@ class AlumnoController extends Controller
     public function registrarAsistencia(Request $request): JsonResponse
     {
         $asistencia = $this->alumnos->registrarAsistencia($request->all(), $request->user());
-        return response()->json(['data' => $asistencia], 201);
+        return response()->json(['data' => $asistencia, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     /**
@@ -66,6 +66,6 @@ class AlumnoController extends Controller
     public function historialGrupo(Request $request, int $idGrupo): JsonResponse
     {
         $historial = $this->alumnos->historialGrupo($idGrupo, $request->user());
-        return response()->json(['data' => $historial]);
+        return response()->json(['data' => $historial, 'message' => 'La información se cargó correctamente']);
     }
 }

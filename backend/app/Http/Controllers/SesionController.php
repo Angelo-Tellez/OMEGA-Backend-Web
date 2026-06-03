@@ -45,7 +45,7 @@ class SesionController extends Controller
     public function activa(Request $request, int $idGrupo): JsonResponse
     {
         $sesion = $this->sesiones->sesionActivaDelGrupo($idGrupo, $request->user());
-        return response()->json(['data' => $sesion]);
+        return response()->json(['data' => $sesion, 'message' => 'La información se cargó correctamente']);
     }
 
     /**
@@ -55,7 +55,7 @@ class SesionController extends Controller
     public function abrir(Request $request, int $idGrupo): JsonResponse
     {
         $sesion = $this->sesiones->abrir($idGrupo, $request->all(), $request->user());
-        return response()->json(['data' => $sesion], 201);
+        return response()->json(['data' => $sesion, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     /**
@@ -65,7 +65,7 @@ class SesionController extends Controller
     public function cerrar(Request $request, Sesion $sesion): JsonResponse
     {
         $actualizada = $this->sesiones->cerrar($sesion, $request->user());
-        return response()->json(['data' => $actualizada]);
+        return response()->json(['data' => $actualizada, 'message' => 'La información se actualizó correctamente']);
     }
 
     /**

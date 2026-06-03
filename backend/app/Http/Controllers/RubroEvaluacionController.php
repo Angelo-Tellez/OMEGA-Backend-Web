@@ -27,13 +27,13 @@ class RubroEvaluacionController extends Controller
     public function store(Request $request, int $idInstitucion): JsonResponse
     {
         $creado = $this->rubros->crear($idInstitucion, $request->all(), $request->user());
-        return response()->json(['data' => $creado], 201);
+        return response()->json(['data' => $creado, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function update(Request $request, RubroEvaluacion $rubroEvaluacion): JsonResponse
     {
         $actualizado = $this->rubros->actualizar($rubroEvaluacion, $request->all(), $request->user());
-        return response()->json(['data' => $actualizado]);
+        return response()->json(['data' => $actualizado, 'message' => 'La información se actualizó correctamente']);
     }
 
     public function destroy(Request $request, RubroEvaluacion $rubroEvaluacion): JsonResponse

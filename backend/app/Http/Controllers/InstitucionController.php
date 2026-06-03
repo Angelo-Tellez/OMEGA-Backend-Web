@@ -27,7 +27,7 @@ class InstitucionController extends Controller
     public function store(Request $request): JsonResponse
     {
         $creada = $this->instituciones->crear($request->all(), $request->user());
-        return response()->json(['data' => $creada], 201);
+        return response()->json(['data' => $creada, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function show(Request $request, Institucion $institucion): JsonResponse
@@ -40,7 +40,7 @@ class InstitucionController extends Controller
     public function update(Request $request, Institucion $institucion): JsonResponse
     {
         $actualizada = $this->instituciones->actualizar($institucion, $request->all(), $request->user());
-        return response()->json(['data' => $actualizada]);
+        return response()->json(['data' => $actualizada, 'message' => 'La información se actualizó correctamente']);
     }
 
     public function destroy(Request $request, Institucion $institucion): JsonResponse

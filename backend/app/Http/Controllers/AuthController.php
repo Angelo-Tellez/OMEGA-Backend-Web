@@ -19,13 +19,13 @@ class AuthController extends Controller
     public function registro(Request $request): JsonResponse
     {
         $resultado = $this->auth->registro($request->all());
-        return response()->json(['data' => $resultado], 201);
+        return response()->json(['data' => $resultado, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     public function login(Request $request): JsonResponse
     {
         $resultado = $this->auth->login($request->all());
-        return response()->json(['data' => $resultado]);
+        return response()->json(['data' => $resultado, 'message' => 'La información se cargó correctamente']);
     }
 
     public function logout(Request $request): JsonResponse

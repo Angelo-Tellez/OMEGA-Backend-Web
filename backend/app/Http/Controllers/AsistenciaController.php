@@ -65,7 +65,7 @@ class AsistenciaController extends Controller
     public function registrar(Request $request): JsonResponse
     {
         $asistencia = $this->asistencias->registrar($request->all(), $request->user());
-        return response()->json(['data' => $asistencia], 201);
+        return response()->json(['data' => $asistencia, 'message' => 'El registro se realizó correctamente'], 201);
     }
 
     /**
@@ -75,7 +75,7 @@ class AsistenciaController extends Controller
     public function editarEstado(Request $request, Asistencia $asistencia): JsonResponse
     {
         $actualizada = $this->asistencias->editarEstado($asistencia, $request->all());
-        return response()->json(['data' => $actualizada]);
+        return response()->json(['data' => $actualizada, 'message' => 'La información se actualizó correctamente']);
     }
 
     /**
@@ -100,6 +100,6 @@ class AsistenciaController extends Controller
             $actualizada = $this->asistencias->editarEstado($asistencia, $request->all());
         }
 
-        return response()->json(['data' => $asistencia->fresh()]);
+        return response()->json(['data' => $asistencia->fresh(), 'message' => 'La información se actualizó correctamente']);
     }
 }
