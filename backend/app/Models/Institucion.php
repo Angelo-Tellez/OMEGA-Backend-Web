@@ -22,7 +22,16 @@ class Institucion extends Model
         'logo',
     ];
 
-    // Relaciones
+    // ─── Query Scopes (MPL §2.3.1) ───────────────────────────────────────────
+
+    /** Filtra instituciones pertenecientes a un docente específico. */
+    public function scopePorDocente($query, int $idDocente)
+    {
+        return $query->where('id_docente', $idDocente);
+    }
+
+    // ─── Relaciones ───────────────────────────────────────────────────────────
+
     public function docente()
     {
         return $this->belongsTo(Usuario::class, 'id_docente', 'id_usuario');

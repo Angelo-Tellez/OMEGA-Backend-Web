@@ -1,14 +1,18 @@
 <?php
 
+/*
+ * ============================================================
+ * Modelo Eloquent — tabla: grupos
+ * MDB-OMEGA-03 §4.1 | MPL-OMEGA-05 §6.3
+ * Representa el aula virtual que agrupa alumnos en torno a una materia.
+ * @version 1.1.0
+ * ============================================================
+ */
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-/**
- * Modelo Eloquent — tabla: grupos
- * Representa el aula virtual que agrupa alumnos en torno a una materia.
- */
 class Grupo extends Model
 {
     use HasFactory;
@@ -27,6 +31,11 @@ class Grupo extends Model
         'horario',
     ];
 
+    /** MPL §6.3 — Ocultar codigo_inv en respuestas JSON (medida defensiva) */
+    protected $hidden = [
+        'codigo_inv',
+    ];
+
     protected function casts(): array
     {
         return [
@@ -35,7 +44,22 @@ class Grupo extends Model
         ];
     }
 
-    // Relaciones
+    // ─── Query Scopes (MPL §2.3.1) ───────────────────────────────────────────
+
+    /** Filtra grupos pertenecientes a un docente específico. */
+    public function scopePorDocente($query, int $idDocente)
+    {
+        return $query->where('id_docente', $idDocente);
+    }
+
+    /** Filtra grupos pertenecientes a una institución específica. */
+    public function scopePorInstitucion($query, int $idInstitucion)
+    {
+        return $query->where('id_institucion', $idInstitucion);
+    }
+
+    // ─── Relaciones ───────────────────────────────────────────────────────────
+
     public function institucion()
     {
         return $this->belongsTo(Institucion::class, 'id_institucion', 'id_institucion');

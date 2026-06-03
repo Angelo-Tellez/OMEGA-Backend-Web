@@ -36,7 +36,28 @@ class Sesion extends Model
         ];
     }
 
-    // Relaciones
+    // ─── Query Scopes (MPL §2.3.1) ───────────────────────────────────────────
+
+    /** Filtra sesiones por grupo. */
+    public function scopePorGrupo($query, int $idGrupo)
+    {
+        return $query->where('id_grupo', $idGrupo);
+    }
+
+    /** Filtra sesiones activas (est_sesion = 1). */
+    public function scopeActivas($query)
+    {
+        return $query->where('est_sesion', 1);
+    }
+
+    /** Filtra sesiones cerradas (est_sesion = 0). */
+    public function scopeCerradas($query)
+    {
+        return $query->where('est_sesion', 0);
+    }
+
+    // ─── Relaciones ───────────────────────────────────────────────────────────
+
     public function grupo()
     {
         return $this->belongsTo(Grupo::class, 'id_grupo', 'id_grupo');
