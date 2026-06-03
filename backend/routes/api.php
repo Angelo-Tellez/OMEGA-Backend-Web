@@ -74,8 +74,8 @@ Route::middleware('auth:sanctum')->group(function () {
     // ── Rubros de evaluación ───────────────────────────────────────────────
     Route::get('instituciones/{idInstitucion}/rubros',  [RubroEvaluacionController::class, 'index']);
     Route::post('instituciones/{idInstitucion}/rubros', [RubroEvaluacionController::class, 'store']);
-    Route::put('rubros/{rubroEvaluacion}',              [RubroEvaluacionController::class, 'update']);
-    Route::delete('rubros/{rubroEvaluacion}',           [RubroEvaluacionController::class, 'destroy']);
+    Route::put('rubros/{rubro_evaluacion}',              [RubroEvaluacionController::class, 'update']);
+    Route::delete('rubros/{rubro_evaluacion}',           [RubroEvaluacionController::class, 'destroy']);
 
     // ── Grupos ─────────────────────────────────────────────────────────────
     Route::get('grupos',                     [GrupoController::class, 'index']);
@@ -89,7 +89,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // ── Alumnos en grupos (gestión docente) ────────────────────────────────
     Route::get('grupos/{idGrupo}/alumnos',       [GrupoAlumnoController::class, 'index']);
-    Route::delete('grupo-alumnos/{grupoAlumno}', [GrupoAlumnoController::class, 'destroy']);
+    Route::delete('grupo-alumnos/{grupo_alumno}', [GrupoAlumnoController::class, 'destroy']);
     Route::delete('grupos/{idGrupo}/alumnos/{idAlumno}', [GrupoAlumnoController::class, 'destroyPorGrupoAlumno']);
 
     // ── Sesiones ───────────────────────────────────────────────────────────
